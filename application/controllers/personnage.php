@@ -16,6 +16,7 @@ class Personnage extends CI_Controller {
         $this->load->helper('form');
         $nom_perso = $this->input->post('nom_perso');
         $nom_utilisateur = $this->input->post('nom_utilisateur');
+        $nb = $this->input->post('nb');
         if ($nom_perso) {
             $persos_temp = $this->personnage_model->get_all_by_nom($nom_perso);
             $persos = array();
@@ -35,6 +36,15 @@ class Personnage extends CI_Controller {
                 }   
             } else {
                 $persos = array();
+            }
+        }
+        if ($nb) {
+            $persos_temp = $this->personnage_model->get_last_persos($nb);
+            $persos = array();
+            foreach ($persos_temp as $perso) {
+                $utilisateur = $this->utilisateur_model->get_by_id($perso['id_joueur']);
+                $perso['nom_joueur'] = $utilisateur['nom'];
+                $persos[] = $perso;
             }
         }
         

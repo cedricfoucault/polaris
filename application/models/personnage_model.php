@@ -229,6 +229,13 @@ class Personnage_model extends CI_Model {
         $this->db->delete('Personnage');
 	}
 	
+	public function get_last_persos($n) {
+	    $this->db->order_by('id', 'desc');
+	    $this->db->limit($n);
+	    $query = $this->db->get('Personnage');
+	    return $query->result_array();
+	}
+	
 	public function get_proprietaire($id) {
         $this->db->select('id_joueur');
         $this->db->where('id', $id);

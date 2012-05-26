@@ -1,29 +1,32 @@
 <div class="Chunk">
-    <h1>Cr&eacuteation de personnage</h1>
+    <h1>Création de personnage</h1>
 </div>
+
 <?php if ($this->session->userdata('connecté')): ?>
     <div class="Chunk">
         <?php echo validation_errors(); ?>
+
         <?php echo form_open('personnage/creation'); ?>
             <div class="Chunk">
                 <div class="Chunk d by2">
-                    <div class="Chunk">
-                        <div class="Chunk d by3"><label for="nom">Nom</label></div>
-                        <div class="Chunk d by3 x2"><input type="input" name="nom" value="<?php echo set_value('nom'); ?>" /></div>
+                    <div class="form-field">
+                        <label for="nom">Nom</label>
+                        <input type="input" name="nom" value="<?php echo set_value('nom'); ?>" />
                     </div>
-                    <div class="Chunk">
-                        <div class="Chunk d by3"><label for="sexe">Sexe</label></div>
-                        <div class="Chunk d by3"><input type="radio" name="sexe" value="homme" <?php echo set_radio('sexe', 'homme'); ?>>Homme</input></div>
-                        <div class="Chunk d by3"><input type="radio" name="sexe" value="femme" <?php echo set_radio('sexe', 'femme'); ?>>Femme</input></div>
+
+                    <div class="form-field">
+                        <label for="sexe">Sexe</label>
+                        <input type="radio" name="sexe" value="Homme" <?php echo set_radio('sexe', 'homme'); ?>>Homme</input>
+                        <input type="radio" name="sexe" value="Femme" <?php echo set_radio('sexe', 'femme'); ?>>Femme</input>
                     </div>
-                    <div class="Chunk">
-                        <div class="Chunk d by3"><label for="age">Age</label></div>
-                        <div class="Chunk d by3 x2">
-                            <span name="age" id="age" class="counter">16</span>
-                            <span>ans</span>
-                        </div>
+
+                    <div class="form-field">
+                        <label for="age">Age</label>
+                        <span name="age" id="age" class="counter">16</span>
+                        <span>ans</span>
                     </div>
-                    <div id="div_pts_creation">
+
+                    <div id="div_pts_creation" class="form-field last">
                         <span name="pts_creation" class="counter" id="pts_creation">20</span>
                         <span>Points de création restants</span>
                     </div>
@@ -32,220 +35,193 @@
             </div>
 
             <div class="Chunk">
-                <h3><span for="description_physique" class="clickable expand">[–]</span> Description physique</h3>
+                <h2><span for="description_physique" class="clickable expand">[–]</span> Description physique</h2>
             </div>
 
-            <div class="Chunk">
+            <div id="zone_description_physique" class="Chunk">
                 <div class="Chunk d by2">
+                    <div class="form-field">
+                        <label for="taille" class="description">Taille (cm)</label>
+                        <input type="input" name="taille" maxlength="3" size="3" value="<?php echo set_value('taille'); ?>" />
+                    </div>
 
-                    <div id="zone_description_physique">
-                        <div class="Chunk">
-                            <div class="Chunk d by3"><label for="taille" class="description">Taille (cm)</label></div>
-                            <div class="Chunk d by3 x2"><input type="input" name="taille" maxlength="3" size="3" value="<?php echo set_value('taille'); ?>" /></div>
-                        </div>
-                        <div class="Chunk">
-                            <div class="Chunk d by3"><label for="peau" class="description">Peau</label></div>
-                            <div class="Chunk d by3 x2"><input type="input" name="peau" size="15" maxlength="32" value="<?php echo set_value('peau'); ?>" /></div>
-                        </div>
-                        <div class="Chunk">
-                            <div class="Chunk d by3"><label for="corpulence" class="description">Corpulence</label></div>
-                            <div class="Chunk d by3 x2"><input type="input" name="corpulence" size="15" value="<?php echo set_value('corpulence'); ?>" /></div>
-                        </div>
-                        <div class="Chunk">
-                            <div class="Chunk d by3"><label for="cheveux" class="description">Cheveux</label></div>
-                            <div class="Chunk d by3 x2"><input type="input" name="cheveux" size="15" maxlength="32" value="<?php echo set_value('cheveux'); ?>" /></div>
-                        </div>
-                        <div class="Chunk">
-                            <div class="Chunk d by3"><label for="yeux" class="description">Yeux</label></div>
-                            <div class="Chunk d by3 x2"><input type="input" name="yeux" size="15" maxlength="32" value="<?php echo set_value('yeux'); ?>" /></div>
-                        </div>
-                        <div class="Chunk">
-                            <div class="Chunk d by3"><label for="signes" class="description">Signes Particuliers</label></div>
-                            <div class="Chunk d by3 x2"><textarea name="signes" rows="1" maxlength="256" value="<?php echo set_value('signes'); ?>"></textarea></div>
-                        </div>
+                    <div class="form-field">
+                        <label for="peau" class="description">Peau</label>
+                        <input type="input" name="peau" size="15" maxlength="32" value="<?php echo set_value('peau'); ?>" />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="corpulence" class="description">Corpulence</label>
+                        <input type="input" name="corpulence" size="15" value="<?php echo set_value('corpulence'); ?>" />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="cheveux" class="description">Cheveux</label>
+                        <input type="input" name="cheveux" size="15" maxlength="32" value="<?php echo set_value('cheveux'); ?>" />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="yeux" class="description">Yeux</label>
+                        <input type="input" name="yeux" size="15" maxlength="32" value="<?php echo set_value('yeux'); ?>" />
+                    </div>
+
+                    <div class="form-field">
+                        <label for="signes" class="description">Signes Particuliers</label>
+                        <textarea name="signes" rows="1" maxlength="256" value="<?php echo set_value('signes'); ?>"></textarea>
                     </div>
                 </div>
-                
+
                 <div class="Chunk d by2">&nbsp;</div>
             </div>
 
             <div class="Chunk">
-                <h3><span for="attributs" class="clickable expand">[–]</span> Attributs</h3>
+                <h2><span for="attributs" class="clickable expand">[–]</span> Attributs</h2>
             </div>
 
-            <div class="Chunk">
+            <div id="zone_attributs" class="Chunk">
                 <div class="Chunk d by2">
-                    <div id="zone_attributs">
-                        <div class="Chunk">
-                            <!-- <input type="number" value="38" min="0" max="99"
-                            readonly="readonly" name="pts_attributs" id="pts_attributs" /> -->
-                            <span name="pts_attributs" id="pts_attributs" class="counter">38</span>
-                            <span>Points d'attributs restants</span>
+                    <div class="Chunk">
+                        <!-- <input type="number" value="38" min="0" max="99"
+                        readonly="readonly" name="pts_attributs" id="pts_attributs" /> -->
+                        <span name="pts_attributs" id="pts_attributs" class="counter">38</span>
+                        <span>Points d'attributs restants</span>
+                    </div>
+
+                    <div class="Chunk">
+                        <!-- <fieldset> -->
+                        <!-- <legend>Attributs</legend> -->
+                        <?php
+                            $attributs = array(
+                                "for" => "Force",
+                                "con" => "Constitution",
+                                "coo" => "Coordination",
+                                "ada" => "Adaptation",
+                                "per" => "Perception",
+                                "int" => "Intelligence",
+                                "vol" => "Volonté",
+                                "pre" => "Présence",
+                            );
+                        ?>
+                        <?php foreach ($attributs as $label => $attribut): ?>
+                            <div class="form-field">
+                                <?php echo form_label($attribut, $label); ?>
+                                <input type="number" min="7" max="20" name="<?php echo $label;?>" id="<?php echo $label;?>" value="<?php echo set_value($label, '7'); ?>" />
+                            </div>
+                        <?php endforeach ?>
+                        <!-- </fieldset> -->
+                    </div>
+
+                    <div class="Chunk">
+                        <?php echo anchor('personnage/cout_attributs', 'Voir les coûts en points d\'attributs');?>
+                    </div>
+
+                    <div class="Chunk">
+                        <div class="Chunk d by3">
+                            <input type="number" value="0" min="0" max="99" name="pc_depense_attributs" id="pc_depense_attributs" />
                         </div>
 
-                        <div class="Chunk">
-                            <!-- <fieldset> -->
-                            <!-- <legend>Attributs</legend> -->
-                            <?php
-                                $attributs = array(
-                                    "for" => "Force",
-                                    "con" => "Constitution",
-                                    "coo" => "Coordination",
-                                    "ada" => "Adaptation",
-                                    "per" => "Perception",
-                                    "int" => "Intelligence",
-                                    "vol" => "Volonté",
-                                    "pre" => "Présence",
-                                );
-                            ?>
-                            <?php foreach ($attributs as $label => $attribut): ?>
-                                <div class="Chunk">
-                                    <div class="Chunk d by3">
-                                        <?php echo form_label($attribut, $label); ?>                		        
-                                    </div>
-                                    <div class="Chunk d by3 x2">
-                                        <input type="number" min="7" max="20"
-                                        name="<?php echo $label;?>" id="<?php echo $label;?>" value="<?php echo set_value($label, '7'); ?>" />
-                                    </div>
-                                </div>
-                            <?php endforeach ?>
-                            <!-- </fieldset> -->
-                        </div>
-
-                        <div class="Chunk">
-                            <?php echo anchor('personnage/cout_attributs', 'Voir les coûts en points d\'attributs');?>
-                        </div>
-                        <div class="Chunk">
-                            <div class="Chunk d by3">
-                                <input type="number" value="0" min="0" max="99"
-                                name="pc_depense_attributs" id="pc_depense_attributs" />
-                            </div>
-                            <div class="Chunk d by3 x2">
-                                Points de création convertis en points d'attributs
-                            </div>
+                        <div class="Chunk d by3 x2">
+                            Points de création convertis en points d'attributs
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="Chunk d by2">&nbsp;</div>
             </div>
 
             <div class="Chunk">
-                <div class="Chunk nobottom">
-                    <h3><span for="ajout_mutations" class="clickable expand">[–]</span> Mutations</h3>
+                <h2><span for="ajout_mutations" class="clickable expand">[–]</span> Mutations</h2>
+            </div>
+
+            <div id="zone_ajout_mutations" class="Chunk">
+                <div class="Chunk d by2">
+                    <div>
+                        <label for="mutation_alea">Mutation(s) Al&eacuteatoire(s)</label>
+                        <input type="checkbox" name="mutation_alea" id="mutation_alea" value="true" <?php echo set_checkbox('mutation_alea','true'); ?> />
+                    </div>
+
+                    <div id="zone_mutations"></div>
+
+                    <div>
+                        <button type="button" id="ajouter_mutation">Ajouter une mutation +</button>
+                    </div>
                 </div>
+
+                <div class="Chunk d by2 x2">&nbsp;</div>
+            </div>
+
+            <div class="Chunk">
+                <h2><span for="avantages_desavantages" class="clickable expand">[–]</span> Avantages et désavantages</h2>
+            </div>
+
+            <div id="zone_avantages_desavantages" class="Chunk">
                 <div class="Chunk">
                     <div class="Chunk d by2">
-                        <div id="zone_ajout_mutations">
-                            <div>
-                                <label for="mutation_alea">Mutation(s) Al&eacuteatoire(s)</label>
-                                <input type="checkbox" name="mutation_alea" id="mutation_alea" value="true" <?php echo set_checkbox('mutation_alea','true'); ?> />
-                            </div>
+                        <h3 class="notop">Avantages</h3>
 
-                            <div id="zone_mutations"></div>
-                            <div>
-                                <button type="button" id="ajouter_mutation">Ajouter une mutation +</button>
-                            </div>
+                        <div id="zone_avantages"></div>
+
+                        <div>
+                            <button type="button" id="ajouter_avantage">Ajouter un avantage +</button>
                         </div>
                     </div>
-                    <div class="Chunk d by2 x2">&nbsp;</div>
+
+                    <div class="Chunk d by2">
+                        <h3>Désavantages</h3>
+
+                        <div id="zone_desavantages"></div>
+
+                        <div>
+                            <button type="button" id="ajouter_desavantage">Ajouter un désavantage +</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="Chunk">
-                <div class="Chunk nobottom">
-                    <h3><span for="avantages_desavantages" class="clickable expand">[–]</span> Avantages et désavantages</h3>
-                </div>
-                <div class="Chunk">
-                    <div class="Chunk d by2">
-                        <div id="zone_avantages_desavantages">
-                            <h4 class="notop"><span for="ajout_avantages" class="clickable expand">[–]</span> Avantages</h4>
-                            <div id="zone_ajout_avantages">
-                                <div id="zone_avantages"></div>
-                                <div>
-                                    <button type="button" id="ajouter_avantage">Ajouter un avantage +</button>
-                                </div>
-                            </div>
+                <h2><span for="developpement" class="clickable expand">[–]</span> Développement</h2>
+            </div>
 
-                            <h4><span for="ajout_desavantages" class="clickable expand">[–]</span> Désavantages</h4>
-                            <div id="zone_ajout_desavantages">
-                                <div id="zone_desavantages"></div>
-                                <div>
-                                    <button type="button" id="ajouter_desavantage">Ajouter un désavantage +</button>
-                                </div>
-                            </div>
+            <div id="zone_developpement" class="Chunk">
+                <div class="Chunk">
+                    <div class="form-field">
+                        <label for="origine_geographique">Origine Géographique</label>
+                        <?php // $origines_geographiques['none'] = '– Choix origine géographique -';?>
+                        <?php echo form_dropdown('origine_geographique', $origines_geographiques, 'none');?>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="origine_sociale">Origine Sociale</label>
+                        <?php // $origines_sociales['none'] = '– Choix origine sociale -';?>
+                        <?php echo form_dropdown('origine_sociale', $origines_sociales, 'none');?>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="formation">Formation de base</label>
+                        <?php // $formations['none'] = '– Choix formation -';?>
+                        <?php echo form_dropdown('formation', $formations, 'none');?>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="etudes_superieures">Études supérieures</label>
+                        <?php $etudes_superieures['none'] = '– Pas d\'études -';?>
+                        <?php echo form_dropdown('etudes_superieures', $etudes_superieures, 'none', 'id="etudes_superieures"');?>
+                    </div>
+
+                    <div class="Chunk">
+                        <h3>Professions</h3>
+
+                        <div id="zone_professions"></div>
+
+                        <div>
+                            <button type="button" id="ajouter_profession">Ajouter une profession +</button>
                         </div>
                     </div>
-                    <div class="Chunk d by2">&nbsp;</div>
                 </div>
             </div>
 
             <div class="Chunk">
-                <div class="Chunk nobottom">
-                    <h3><span for="developpement" class="clickable expand">[–]</span> Développement</h3>
-                </div>
-                <div class="Chunk">
-                    <div class="Chunk d by2">
-                        <div id="zone_developpement">
-                            <div class="Chunk">
-                                <div class="Chunk d by3">
-                                    <label for="origine_geographique">Origine Géographique</label>
-                                </div>
-                                <div class="Chunk d by3 x2">
-                                    <?php // $origines_geographiques['none'] = '– Choix origine géographique -';?>
-                                    <?php echo form_dropdown('origine_geographique', $origines_geographiques, 'none');?>
-                                </div>
-                            </div>
-
-                            <div class="Chunk">
-                                <div class="Chunk d by3">
-                                    <label for="origine_sociale">Origine Sociale</label>
-                                </div>
-                                <div class="Chunk d by3 x2">
-                                    <?php // $origines_sociales['none'] = '– Choix origine sociale -';?>
-                                    <?php echo form_dropdown('origine_sociale', $origines_sociales, 'none');?>
-                                </div>
-                            </div>
-
-                            <div class="Chunk">
-                                <div class="Chunk d by3">
-                                    <label for="formation">Formation de base</label>
-                                </div>
-                                <div class="Chunk d by3 x2">
-                                    <?php // $formations['none'] = '– Choix formation -';?>
-                                    <?php echo form_dropdown('formation', $formations, 'none');?>
-                                </div>
-                            </div>
-
-                            <div class="Chunk">
-                                <div class="Chunk d by3">
-                                    <label for="etudes_superieures">Études supérieures</label>
-                                </div>
-                                <div class="Chunk d by3 x2">
-                                    <?php $etudes_superieures['none'] = '– Pas d\'études -';?>
-                                    <?php echo form_dropdown('etudes_superieures', $etudes_superieures, 'none', 'id="etudes_superieures"');?>
-                                </div>
-                            </div>
-
-                            <div class="Chunk">
-                                <div class="Chunk nobottom">
-                                    <h4><span for="ajout_professions" class="clickable expand">[–]</span> Professions</h4>
-                                </div>
-                                <div id="zone_ajout_professions">
-                                    <div id="zone_professions"></div>
-                                    <div>
-                                        <button type="button" id="ajouter_profession">Ajouter une profession +</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Chunk d by2">&nbsp;</div>
-                </div>
-            </div>
-
-            <div class="Chunk">
-                <input type="submit" name="submit" value="Créer Personnage" /> 
+                <input class="Awesome create" type="submit" name="submit" value="Créer Personnage" /> 
             </div>
         </form>
     </div>
@@ -378,19 +354,19 @@
             template["mutation"] = function(id) {
                 return '<div style="display: none;" id="mutation' + id + '">' +
                 '<span>' + $("#mutations_dropdown").html() + '</span> \
-                <span id="supprimer_mutation' + id + '" class="clickable">&times</span> \
+                <span id="supprimer_mutation' + id + '" class="Awesome tiny destroy clickable">&times</span> \
                 </div>';
             };
             template["avantage"] = function(id) {
                 return '<div style="display: none;" id="avantage' + id + '">' +
                 '<span>' + $("#avantages_dropdown").html() + '</span> \
-                <span id="supprimer_avantage' + id + '" class="clickable">&times</span> \
+                <span id="supprimer_avantage' + id + '" class="Awesome tiny destroy clickable">&times</span> \
                 </div>';
             };
             template["desavantage"] = function(id) {
                 return '<div style="display: none;" id="desavantage' + id + '">' +
                 '<span>' + $("#desavantages_dropdown").html() + '</span> \
-                <span id="supprimer_desavantage' + id + '" class="clickable">&times</span> \
+                <span id="supprimer_desavantage' + id + '" class="Awesome tiny destroy clickable">&times</span> \
                 </div>';
             };
             template["profession"] = function(id) {
@@ -398,7 +374,7 @@
                 '<span>' + $("#professions_dropdown").html() + '</span>' +
                 '<span><input type="number" name="professions_annees[]" min="0" max="99" value="0"/> \
                 an(s)</span> \
-                <span id="supprimer_profession' + id + '" class="clickable">&times</span> \
+                <span id="supprimer_profession' + id + '" class="Awesome tiny destroy clickable">&times</span> \
                 </div>';
             };
             var mutations = {};

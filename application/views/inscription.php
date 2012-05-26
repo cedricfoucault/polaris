@@ -1,36 +1,38 @@
-<h2>S'inscrire</h2>
+<h1>S'inscrire</h1>
 
 <?php echo form_open('utilisateur/inscription'); ?>
 
-<?php echo form_error('nom_utilisateur'); ?>
-<div>
-<label for="nom_utilisateur"><?php echo $nom_utilisateur;?></label>
-<input type="text" name="nom_utilisateur" id="nom_utilisateur" value="<?php echo set_value('nom_utilisateur');?>" size="40" />
-<span id="verification_nom"></span>
-</div>
+    <div class="form-field">
+        <label for="nom_utilisateur"><?php echo $nom_utilisateur;?></label>
+        <input type="text" name="nom_utilisateur" id="nom_utilisateur" value="<?php echo set_value('nom_utilisateur');?>" size="40" />
+        <span id="verification_nom"></span>
+        <?php echo form_error('nom_utilisateur'); ?>
+    </div>
 
-<?php echo form_error('mot_de_passe'); ?>
-<div>
-<label for="mot_de_passe"><?php echo $mot_de_passe;?></label>
-<input type="password" name="mot_de_passe" value="<?php echo set_value('mot_de_passe'); ?>" size="40" />
-<span id="verification_nom" />
-</div>
+    <div class="form-field last">
+        <label for="email"><?php echo $email;?></label>
+        <input type="text" name="email" id="email" value="<?php echo set_value('email');?>" size="40" />
+        <span id="verification_email"></span>
+        <?php echo form_error('email'); ?>
+    </div>
 
-<?php echo form_error('confirmation'); ?>
-<div>
-<label for="confirmation"><?php echo $confirmation;?></label>
-<input type="password" name="confirmation" value="<?php echo set_value('confirmation');?>" size="40" />
-</div>
+    <div class="form-field last">
+        <label for="mot_de_passe"><?php echo $mot_de_passe;?></label>
+        <input type="password" name="mot_de_passe" value="<?php echo set_value('mot_de_passe'); ?>" size="40" />
+        <span id="verification_nom" />
+        <?php echo form_error('mot_de_passe'); ?>
+    </div>
 
-<?php echo form_error('email'); ?>
-<div>
-<label for="email"><?php echo $email;?></label>
-<input type="text" name="email" id="email" value="<?php echo set_value('email');?>" size="40" />
-<span id="verification_email"></span>
-</div>
-
-<div><input type="submit" value="S'inscrire" /></div>
-
+    <div class="form-field">
+        <label for="confirmation"><?php echo $confirmation;?></label>
+        <input type="password" name="confirmation" value="<?php echo set_value('confirmation');?>" size="40" />
+        <?php echo form_error('confirmation'); ?>
+    </div>
+    
+    <div class="form-field last">
+        <label></label>
+        <input class="Awesome create" type="submit" value="S'inscrire" />
+    </div>
 </form>
 
 <script type="text/javascript">

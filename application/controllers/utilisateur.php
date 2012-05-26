@@ -7,6 +7,10 @@ class Utilisateur extends CI_Controller {
 			$this->load->model('utilisateur_model');
 	}
 	
+	public function index() {
+	    redirect('/utilisateur/identification');
+	}
+	
 	public function voir($id) {
 	    $this->load->model('personnage_model');
 	    $utilisateur = $this->utilisateur_model->get_by_id($id);
@@ -111,8 +115,8 @@ class Utilisateur extends CI_Controller {
 	
 	public function deconnexion() {
 	    $this->session->set_userdata(array('connecté' => FALSE));
-        // redirect('identification');
-        $this->identification();
+        redirect('/utilisateur/identification', 'location');
+        // $this->identification();
 	}
 	
 	public function identifiant_valide($id) {
